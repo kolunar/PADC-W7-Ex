@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.padc.aml.myanmarattractions">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MyanmarAttractionsApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_attraction_launcher_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/home_screen_title"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.AttractionDetailActivity"
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.padc.aml.myanmarattractions.activities.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AccountControlActivity"
+            android:parentActivityName=".activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.padc.aml.myanmarattractions.activities.HomeActivity" />
+        </activity>
+
+        <provider android:authorities="com.padc.aml.myanmarattractions"
+            android:name=".data.persistence.AttractionProvider"
+            android:exported="true"
+            android:syncable="true" >
+        </provider>
+    </application>
+
+</manifest>
